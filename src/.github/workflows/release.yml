@@ -1,0 +1,32 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Update Version and Release
+    runs-on: [self-hosted, basic]
+    outputs:
+      version: ${{ steps.release.outputs.version }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+      - name: Setup Node.js for Build
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install package dependencies
+        run: npm install
+      - name: Git Identity
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Release
+        id: release
+        run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

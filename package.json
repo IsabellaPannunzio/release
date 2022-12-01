@@ -1,0 +1,12 @@
+{
+  "name": "release",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "commit-and-tag-version"
+  },
+  "keywords": [],
+  "author": "",
+  "license": ""
+}
