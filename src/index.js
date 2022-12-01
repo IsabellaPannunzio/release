@@ -5,6 +5,9 @@
     <title>Hello World</title>
     <script>
         alert('Hello, world!');
+        alert('Hello, world!');
+        alert('Hello, world!');
+        alert('Hello, world!');
     </script>
 </head>
 <body>
