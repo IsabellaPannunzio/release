@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     name: Update Version and Release
-    runs-on: [self-hosted, basic]
+    runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.release.outputs.version }}
 
